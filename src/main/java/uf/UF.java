@@ -4,7 +4,7 @@ import arc.struct.*;
 import mindustry.content.*;
 import mindustry.mod.Mod;
 import mindustry.type.UnitType;
-import mindustry.type.Category; // 修正：Category 在 mindustry.type 包下
+import mindustry.type.Category; // 确认 Category 在 type 包下
 import mindustry.world.blocks.payloads.PayloadBlock;
 
 import static mindustry.type.ItemStack.with;
@@ -28,6 +28,9 @@ public class UF extends Mod {
         forgeBlock.health = 500;
         forgeBlock.configurable = true;
         forgeBlock.requirements(Category.effect, with(Items.copper, 20, Items.lead, 30));
+        
+        // 使用 buildType 来创建方块实例，修复 @Override 报错
+        forgeBlock.buildType = () -> forgeBlock.new ForgeBuild();
     }
 
     private void addChain(UnitType... chain) {
