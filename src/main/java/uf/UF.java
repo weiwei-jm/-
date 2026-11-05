@@ -5,7 +5,7 @@ import mindustry.content.*;
 import mindustry.mod.Mod;
 import mindustry.type.UnitType;
 import mindustry.world.blocks.payloads.PayloadBlock;
-import mindustry.world.meta.*;
+import mindustry.world.meta.Category; // 修复 Category 找不到的问题
 
 import static mindustry.type.ItemStack.with;
 
@@ -45,4 +45,4 @@ public class UF extends Mod {
         UnitType[] r = upgrades.find(u -> u[1] == from);
         return r == null ? null : r[0];
     }
-          }
+}
