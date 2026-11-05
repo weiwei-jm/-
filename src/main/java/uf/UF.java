@@ -5,13 +5,12 @@ import mindustry.content.*;
 import mindustry.mod.Mod;
 import mindustry.type.UnitType;
 import mindustry.type.Category;
-import mindustry.world.blocks.payloads.PayloadBlock;
-import uf.ForgeBlock.ForgeBuild; // 加上这行，告诉编译器 ForgeBuild 在哪
 
 import static mindustry.type.ItemStack.with;
 
 public class UF extends Mod {
-    public static PayloadBlock forgeBlock;
+    // 【修改这里】把 PayloadBlock 改成 ForgeBlock
+    public static ForgeBlock forgeBlock; 
     public static Seq<UnitType[]> upgrades = new Seq<>();
 
     @Override
@@ -30,7 +29,7 @@ public class UF extends Mod {
         forgeBlock.configurable = true;
         forgeBlock.requirements(Category.effect, with(Items.copper, 20, Items.lead, 30));
         
-        // 实例化方块建筑
+        // 现在 forgeBlock 是 ForgeBlock 类型了，它就知道自己里面的 ForgeBuild 是什么了
         forgeBlock.buildType = () -> forgeBlock.new ForgeBuild();
     }
 
