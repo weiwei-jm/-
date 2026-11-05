@@ -4,8 +4,8 @@ import arc.struct.*;
 import mindustry.content.*;
 import mindustry.mod.Mod;
 import mindustry.type.UnitType;
+import mindustry.type.Category; // 修正：Category 在 mindustry.type 包下
 import mindustry.world.blocks.payloads.PayloadBlock;
-import mindustry.world.meta.Category; // 修复 Category 找不到的问题
 
 import static mindustry.type.ItemStack.with;
 
